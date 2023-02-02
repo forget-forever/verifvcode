@@ -1,8 +1,8 @@
 <?php
 $sourceMsg = [
 	// 验证码的链接
-	'url' => 'http://authserver.jxust.edu.cn/authserver/captcha.html?ts=89',
-	'rootUrl' => 'http://authserver.jxust.edu.cn',
+	'url' => 'https://authserver.jxust.edu.cn/authserver/captcha.html?ts=89',
+	'rootUrl' => 'https://authserver.jxust.edu.cn',
 	// 最多识别次数
 	'num' => 15,
 	// 匹配度权值，如果一直匹配不上可以尝试降低一下权值，但是准确性会降低
@@ -40,6 +40,8 @@ function getPic () {
     // curl_setopt($curl, CURLOPT_COOKIE, 'route=94a807440c1b0b087ab98739e4609bc3; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh_CN; JSESSIONID=M6eYjgu6iyItf9-i6ndOZDrc5TcQuRC4taDDivdQIWfHGUKUKPtG!-1085678171');
     curl_setopt($curl,CURLOPT_FOLLOWLOCATION,1);
     curl_setopt($curl,CURLOPT_TIMEOUT,60);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, true);
     // 执行
     curl_exec($curl);
     // 关闭curl
